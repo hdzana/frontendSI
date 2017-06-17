@@ -1,0 +1,12 @@
+<div id="login">
+  <div class="container">
+    <div class="row">
+      {{#if session.isAuthenticated}}
+        <h2>Prijavljeni ste</h2>
+      {{else}}
+        <h2 style="color:red"> {{registracijamsg}} </h2>
+      {{/if}}
+    </div>
+  </div>
+  {{login-form action = 'onLogin'}}
+</div>

@@ -1,0 +1,65 @@
+{{admin-nav}}
+
+<div id="panel-holder" class="container">
+   <h3>Moderatori</h3>
+   <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+   </h5>
+
+   <div class="panel-section row">
+    <div class="col-md-6 col-sm-8 col-xs-12">
+      <h3>Dodaj novog moderatora</h3>
+      <div>
+            <select name="korisnicko-ime" id="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
+            
+            <input required type="text" name="sigurnosniId" id="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
+            <label type="text" name="error" id="nerror" style="display: none; color:red;"> Neispravan format sigurnosnog broja. </label>
+
+            <input required type="text" name="adresa" id="adresa" class="form-control" placeholder="Adresa">
+            <input required type="text" name="grad" id="grad" class="form-control" placeholder="Grad">
+
+            <input required type="email" name="email" id="email" class="form-control" placeholder="Email">
+            <label type="text" name="error" id="eerror" style="display: none; color:red;"> Neispravan format e-mail adrese. </label><br>
+
+            <label type="text" name="error" id="inputerror" style="display: none; color:red;"> Niste popunili sva polja. </label><br>
+            <button id="dodaj-novog-moderatora" class="btn btn-success">Dodaj novog moderatora</button>
+         </div>
+    </div>
+   </div>
+
+   <div class="panel-section">
+      <h3>Pregled svih moderatora</h3>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Ime</th>
+               <th>Prezime</th>
+               <th>Adresa</th>
+               <th>Grad</th>
+               <th>Email</th>
+               <th>Opcije</th>
+            </tr>
+         </thead>
+         <tbody>
+            {{#each model as |moderator|}}
+            <tr>
+               <td>{{moderator.osoba.ime}}</td>
+               <td>{{moderator.osoba.prezime}}</td>
+               <td>{{moderator.adresa}}</td>
+               <td>{{moderator.grad}}</td>
+               <td>{{moderator.email}}</td>
+               <td>
+                  <a data-id="{{moderator.id}}" class="btn btn-default brisanje-moderatora" title="Brisanje">
+                  <span class="glyphicon glyphicon-remove"></span>
+                  </a>
+               </td>
+            </tr>
+            {{/each}}
+         </tbody>
+      </table>
+   </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/js-admin-moderator.js"></script>
+<script type="text/javascript" src="/assets/js/js-osoba-moderator.js"></script>
+<script type="text/javascript" src="/assets/js/edit-msg.js"></script>

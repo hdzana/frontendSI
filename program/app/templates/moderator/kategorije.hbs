@@ -1,0 +1,54 @@
+{{moderator-nav}}
+
+<div id="panel-holder" class="container">
+   <h3>Kategorije</h3>
+   <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+   </h5>
+
+   <div class="panel-section row">
+      <div class="col-md-6 col-sm-8 col-xs-12">
+         <h3>Dodaj novu kategoriju</h3>
+      
+         <div>
+            <input required type="text" name="naziv-kategorije" id="naziv-kategorije" class="form-control" placeholder="Naziv kategorije">
+            <input required type="text" name="potkategorije" id="potkategorije" class="form-control" placeholder="Potkategorije">
+            <textarea required name="opis-kategorije" id="opis-kategorije" class="form-control" placeholder="Opis kategorije"></textarea>
+
+            <button id="dodaj-novu-kategoriju" class="btn btn-success">Dodaj novu kategoriju</button> 
+         </div>
+      </div>
+
+      <div class="col-md-6 col-sm-4 hidden-xs"></div>
+   </div>
+   
+   <div class="panel-section">
+      <h3>Pregled svih kategorija</h3>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Naziv kategorije</th>
+               <th>Potkategorija</th>
+               <th>Opis</th>
+               <th>Opcije</th>
+            </tr>
+         </thead>
+         <tbody>
+            {{#each model as |kategorija|}}
+            <tr>
+               <td>{{kategorija.naziv_kategorije}}</td>
+               <td>{{kategorija.potkategorija}}</td>
+               <td>{{kategorija.opis}}</td>
+               <td>
+                  <a href="#" data-id="{{kategorija.id}}" class="btn btn-default brisanje-kategorije" title="Brisanje">
+                  <span class="glyphicon glyphicon-remove"></span>
+                  </a>
+               </td>
+            </tr>
+            {{/each}}
+         </tbody>
+      </table>
+   </div>
+</div>
+<script type="text/javascript" src="/assets/js/js-kategorije.js"></script>
+<script type="text/javascript" src="/assets/js/edit-msg.js"></script>
